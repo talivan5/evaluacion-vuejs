@@ -7,7 +7,14 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ user: any }>();
+defineProps<{
+  user: {
+    avatar?: string;
+    nombre?: string;
+    apellido?: string;
+    nacionalidad?: string;
+  };
+}>();
 </script>
 
 <style scoped>
