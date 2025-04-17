@@ -15,18 +15,19 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { usePersonaStore } from '../stores/personaStore'
 
 const router = useRouter()
 const store = usePersonaStore()
 
-const personas = store.personas
-
 onMounted(() => {
   store.fetchPersonas()
 })
+
+const personas = computed(() => store.personas)
+
 
 const createPersona = () => {
   router.push({ name: 'personaCrear' })
